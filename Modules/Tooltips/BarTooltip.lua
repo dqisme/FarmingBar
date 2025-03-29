@@ -35,12 +35,12 @@ function private:GetBarTooltip(widget)
             hidden = not showDetails and not showHints,
         },
         {
-            line = addon:ColorFontString("Control+click", "TORQUISEBLUE") .. L[" to lock and hide anchor."],
+            line = addon:ColorFontString(L["Control+click"], "TORQUISEBLUE") .. L[" to lock and hide anchor."],
             color = private.CONST.TOOLTIP_DESC,
             hidden = not showDetails and not showHints,
         },
         {
-            line = addon:ColorFontString("Right-click", "TORQUISEBLUE") .. L[" to configure this bar."],
+            line = addon:ColorFontString(L["Right-click"], "TORQUISEBLUE") .. L[" to configure this bar."],
             color = private.CONST.TOOLTIP_DESC,
             hidden = not showDetails and not showHints,
         },

@@ -1,7 +1,6 @@
 local addonName, private = ...
-local addon = LibStub("AceAddon-3.0"):NewAddon(addonName, "AceConsole-3.0", "AceEvent-3.0", "AceHook-3.0")
-local L = LibStub("AceLocale-3.0"):NewLocale(addonName, "enUS", true)
-LibStub("LibAddonUtils-2.0"):Embed(addon)
+local addon = LibStub("AceAddon-3.0"):GetAddon(addonName)
+local L = LibStub("AceLocale-3.0"):NewLocale(addonName, "zhCN")
 
 L.addonName = "Farming Bar"
 
@@ -19,24 +18,24 @@ private.status = {
     },
 }
 
-L["Enabled"] = true
-L["Disabled"] = true
-L["Left-click"] = true
-L["Right-click"] = true
-L["Control+left-click"] = true
-L["Alt+right-click"] = true
-L["Control+click"] = true
-L["Right-click"] = true
-L[" for help."] = true
-L[" to configure bars."] = true
-L[" to configure settings."] = true
-L[" to configure this bar."] = true
-L[" to enable/disable the active profile."] = true
-L[" to lock and hide anchor."] = true
-L["%d more..."] = true
-L["%s Text"] = true
-L["* The following settings are profile specific."] = true
-L["Abbreviate Count"] = true
+L["Enabled"] = "已开启"
+L["Disabled"] = "已关闭"
+L["Left-click"] = "鼠标左键"
+L["Right-click"] = "鼠标右键"
+L["Control+left-click"] = "Ctrl+左键"
+L["Alt+right-click"] = "Alt+右键"
+L["Control+click"] = "Ctrl+左键"
+L["Right-click"] = "鼠标右键"
+L[" for help."] = "获取帮助"
+L[" to configure bars."] = "设置栏目"
+L[" to configure settings."] = "打开设置"
+L[" to configure this bar."] = "设置当前栏目"
+L[" to enable/disable the active profile."] = "打开/关闭当前配置文件"
+L[" to lock and hide anchor."] = "锁定并隐藏锚点"
+L["%d more..."] = "%d +"
+L["%s Text"] = "%s 文本"
+L["* The following settings are profile specific."] = "以下设置为配置文件专属"
+L["Abbreviate Count"] = "简略计数"
 L["Abbreviate large numbers on buttons' objective counts."] = true
 L["Add Tracker"] = true
 L["Add"] = true
@@ -86,7 +85,7 @@ L["Bar Complete"] = true
 L["Bar is already assigned an ID: %d"] = true
 L["Bar Progress"] = true
 L["Bar Tooltips"] = true
-L["Bar"] = true
+L["Bar"] = "栏目"
 L["barDB.hidden must return a \"function\""] = true
 L["Blend Mode"] = true
 L["BLEND"] = true
@@ -99,7 +98,7 @@ L["Button Size"] = true
 L["Button textures may be controlled by Masque and must be disabled through its settings for skins to be applied."] = true
 L["Button Textures"] = true
 L["Button Tooltips"] = true
-L["Button"] = true
+L["Button"] = "按钮"
 L["Buttons Per Axis"] = true
 L["Buttons"] = true
 L["Chat frame for chat alerts from this bar."] = true
@@ -114,15 +113,15 @@ L["Code Viewer"] = true
 L["Color"] = true
 L["Completed Goals"] = true
 L["Condition"] = true
-L["Config"] = true
-L["Configure bar settings."] = true
-L["Confirm"] = true
+L["Config"] = "配置"
+L["Configure bar settings."] = "设置栏目选项"
+L["Confirm"] = "确认"
 L["Continue tracking farming progress after goal completion."] = true
-L["Control"] = true
+L["Control"] = "控制"
 L["Converted Currency"] = true
 L["Converted Item"] = true
 L["Copy From"] = true
-L["Count"] = true
+L["Count"] = "总计"
 L["Currency"] = true
 L["Custom Condition"] = true
 L["Custom Condition: Invalid function"] = true
@@ -146,8 +145,8 @@ L["Enable this slash command."] = true
 L["Enable"] = true
 L["Event \"%s\" doesn't exist."] = true
 L["Events"] = true
-L["Expand Tooltip"] = true
-L["Expand"] = true
+L["Expand Tooltip"] = "提示扩展"
+L["Expand"] = "展开"
 L["Export Frame"] = true
 L["Export"] = true
 L["Fallback"] = true
@@ -165,7 +164,7 @@ L["Gloss"] = true
 L["Goal Cleared"] = true
 L["Goal Complete"] = true
 L["Goal Set"] = true
-L["Goal"] = true
+L["Goal"] = "目标"
 L["Guild Bank"] = true
 L["Help"] = true
 L["Hidden (Override Func)"] = true
@@ -175,7 +174,7 @@ L["Hide In Combat"] = true
 L["Hides the bar, regardless of the output from the custom hidden function."] = true
 L["Hides the bar in combat and restores visibility (based upon your other settings) upon leaving combat."] = true
 L["Highlight"] = true
-L["Hints"] = true
+L["Hints"] = "操作说明"
 L["Hold this key down while hovering over a button to view additional tooltip details."] = true
 L["Icon Border Thick"] = true
 L["Icon Border"] = true
@@ -200,9 +199,9 @@ L["Invalid Alt ID"] = true
 L["Invalid alpha value. Please provide an integer between 0 and 1."] = true
 L["Invalid anchor: bottomleft | bottomright | topleft | topright"] = true
 L["Invalid barID. To apply to all bars, use barID 0."] = true
-L["Invalid currency ID."] = true
+L["Invalid currency ID."] = "非法的货币ID"
 L["Invalid growth: col | row"] = true
-L["Invalid item ID."] = true
+L["Invalid item ID."] = "非法的物品ID"
 L["Invalid scale value. Please provide an integer between %s and %s."] = true
 L["Invalid template name."] = true
 L["Invalid Tracker/Alt ID"] = true
@@ -370,7 +369,7 @@ L["Tracker Key"] = true
 L["Tracker Progress"] = true
 L["Tracker Type"] = true
 L["Tracker"] = true
-L["Trackers"] = true
+L["Trackers"] = "追踪"
 L["Type"] = true
 L["UI ActionButton Border"] = true
 L["UI EmptySlot White"] = true
@@ -694,25 +693,25 @@ end
 local function GetCommandString(actionInfo)
     -- Ctrl+right-click
     local mods = addon:StringToTitle(gsub(actionInfo.modifier, "-", "+")) -- Put in title case and replace - with +
-    local button = gsub(actionInfo.button, "Button", "")
+    local button = (actionInfo.button == "LeftButton" and "左键" or (actionInfo.button == "RightButton" and "右键") or "")
     button = mods == "" and button or format("+%s", strlower(button))
-    local clickType = actionInfo.type and "drag" or "click"
+    local clickType = actionInfo.type and "拖拽" or "点击"
 
-    return addon:ColorFontString(format("%s%s-%s", mods, button, clickType), "TORQUISEBLUE")
+    return addon:ColorFontString(format("%s%s%s", mods, button, clickType), "TORQUISEBLUE")
 end
 
 L.ButtonHints = function(action, actionInfo)
     local actions = {
-        useItem = format("%s to use the display item or run the display macrotext.", GetCommandString(actionInfo)),
-        moveObjective = format("%s to move this objective.", GetCommandString(actionInfo)),
-        dragObjective = format("%s to move this objective.", GetCommandString(actionInfo)),
-        clearObjective = format("%s to clear this objective.", GetCommandString(actionInfo)),
-        showObjectiveEditBox = format("%s to show the goal editbox.", GetCommandString(actionInfo)),
-        showQuickAddEditBox = format("%s to show the quick add editbox.", GetCommandString(actionInfo)),
-        showQuickAddCurrencyEditBox = format("%s to show the currency quick add editbox.", GetCommandString(actionInfo)),
-        showObjectiveEditor = format("%s to show the objective editor.", GetCommandString(actionInfo)),
-        moveObjectiveToBank = format("%s to move all items until the objective to your bank.", GetCommandString(actionInfo)),
-        moveAllToBank = format("%s to move all items to your bank.", GetCommandString(actionInfo)),
+        useItem = format("%s 使用物品或宏命令", GetCommandString(actionInfo)),
+        moveObjective = format("%s 移动对象", GetCommandString(actionInfo)),
+        dragObjective = format("%s 移动对象", GetCommandString(actionInfo)),
+        clearObjective = format("%s 清楚对象", GetCommandString(actionInfo)),
+        showObjectiveEditBox = format("%s 打开目标编辑框", GetCommandString(actionInfo)),
+        showQuickAddEditBox = format("%s 打开快速添加编辑框", GetCommandString(actionInfo)),
+        showQuickAddCurrencyEditBox = format("%s 打开快速添加货币编辑框", GetCommandString(actionInfo)),
+        showObjectiveEditor = format("%s 打开对象编辑器", GetCommandString(actionInfo)),
+        moveObjectiveToBank = format("%s 移动目标物品到你的银行", GetCommandString(actionInfo)),
+        moveAllToBank = format("%s 移动所有物品到你的银行", GetCommandString(actionInfo)),
     }
 
     return actions[action] or ""
