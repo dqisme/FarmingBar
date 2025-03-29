@@ -34,7 +34,7 @@ function lib:CacheItem(itemID, callback, args)
             item = Item:CreateFromItemLink(itemID)
         end
 
-        if not item:IsItemEmpty() then
+        if (not item:IsItemEmpty()) and (item:GetItemName() ~= nil) then
             item:ContinueOnItemLoad(function()
                 lib:CacheItem(itemID, callback, args)
             end)
