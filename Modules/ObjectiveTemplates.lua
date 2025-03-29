@@ -3,6 +3,7 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(addonName)
 local L = LibStub("AceLocale-3.0"):GetLocale(addonName, true)
 
 function private:AddObjective(widget, Type, id, alert)
+    if not id then return addon:Print(alert) end
     return addon:Cache(strlower(Type), id, function(success, id, private, widget, Type, id, alert)
         if success then
             local name, icon = private:GetTrackerInfo(Type, id)

@@ -385,7 +385,7 @@ function private:GetMixedBarDBValues(info, path, path2)
 end
 
 function private:GetMouseFocusName()
-    if version >= 110000 then
+    if not GetMouseFocus then
         local frame = GetMouseFoci()
         return frame and frame[1]:GetName()
     else

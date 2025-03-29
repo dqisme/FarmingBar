@@ -443,7 +443,7 @@ local methods = {
             if fontDB.enabled and not isEmpty then
                 fontstring:Show()
                 fontstring:SetPoint(fontDB.anchor, fontDB.x, fontDB.y)
-                fontstring:SetFont(LSM:Fetch("font", fontDB.face), fontDB.size, fontDB.outline)
+                fontstring:SetFont(LSM:Fetch("font", fontDB.face), fontDB.size, string.gsub(fontDB.outline, "^NONE$", ""))
                 fontstring:SetTextColor(unpack(fontDB.color))
             else
                 fontstring:Hide()
@@ -451,7 +451,7 @@ local methods = {
         end
 
         local fontDB = private.db.profile.style.font
-        widget.editbox:SetFont(LSM:Fetch("font", fontDB.face), fontDB.size, fontDB.outline)
+        widget.editbox:SetFont(LSM:Fetch("font", fontDB.face), fontDB.size, string.gsub(fontDB.outline, "^NONE$", ""))
     end,
 
     SetHeight = function(widget, height)
