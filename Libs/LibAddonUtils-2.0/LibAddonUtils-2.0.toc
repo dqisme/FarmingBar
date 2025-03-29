@@ -1,0 +1,13 @@
+## Interface: 90207
+## Title: Lib: LibAddonUtils-2.0
+## Author: Nikketa-Hyjal-US
+## Notes: Collection of useful tools for addon authors.
+## Version: v1.2.0
+## X-Category: Library
+
+## X-Curse-Project-ID: 689021
+## X-WoWI-ID: 26427
+## X-Wago-ID: LvNAz86o
+
+Libs\LibStub\LibStub.lua
+LibAddonUtils-2.0.lua
