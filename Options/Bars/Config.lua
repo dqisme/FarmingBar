@@ -413,7 +413,7 @@ function private:GetConfigOptions()
             order = i,
             type = "group",
             inline = true,
-            name = format(L["%s Text"], fontName),
+            name = format(L["%s Text"], L[fontName]),
             get = function(info)
                 return private:GetMixedBarDBValues(info, "fontstrings", fontName)
             end,

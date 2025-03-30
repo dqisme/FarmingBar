@@ -207,7 +207,7 @@ function private:GetObjectiveTemplatesOptions()
             image = private:GetObjectiveIcon(objectiveTemplate),
             width = 0.25,
             name = objectiveTemplateName,
-            desc = L["Left-click to pickup this objective.\nRight-click to edit this objective."],
+            desc = L["Left-click to pickup this objective."].."\n"..L["Right-click to edit this objective."],
             func = function(_, mouseButton)
                 if mouseButton == "LeftButton" then
                     private:PickupObjectiveTemplate(objectiveTemplateName)

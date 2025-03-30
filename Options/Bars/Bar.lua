@@ -523,7 +523,7 @@ function private:GetBarOptions(barID)
             order = i,
             type = "group",
             inline = true,
-            name = format(L["%s Text"], fontName),
+            name = format(L["%s Text"], L[fontName]),
             get = function(info)
                 return fontDB[info[#info]]
             end,
@@ -594,7 +594,7 @@ function private:GetBarOptions(barID)
             order = i,
             type = "group",
             inline = true,
-            name = format(L["%s Text"], fontName),
+            name = format(L["%s Text"], L[fontName]),
             get = function(info)
                 return fontDB[info[#info]]
             end,
