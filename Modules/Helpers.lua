@@ -425,8 +425,8 @@ function private:RegisterMedia()
     LSM:Register(LSM.MediaType.SOUND, L["Quest Activate"], 567400) -- id:618
     LSM:Register(LSM.MediaType.SOUND, L["Quest Complete"], 567439) -- id:878
     LSM:Register(LSM.MediaType.SOUND, L["Quest Failed"], 567459) -- id:846
-    LSM:Register(LSM.MediaType.SOUND, L["Select Difficulty"], 2177913)
-    LSM:Register(LSM.MediaType.SOUND, L["Quest Objective Complete"], 642843)
+    LSM:Register(LSM.MediaType.SOUND, L["Select Difficulty"], [[Interface\AddOns\FarmingBar\Media\ui_80_islands_table_select_difficulty.ogg]]) -- fdid:2177913, introduced at 8.0.1.26871
+    LSM:Register(LSM.MediaType.SOUND, L["Quest Objective Complete"], [[Interface\AddOns\FarmingBar\Media\ui_quest_objectivecomplete_01.ogg]]) -- fdid: 642843, introduced at 6.0.1.18379
 end
 
 function private:SetMixedBarDBValues(info, value, path, callback, path2)
